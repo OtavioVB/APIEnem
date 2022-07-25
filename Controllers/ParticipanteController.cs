@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using APIEnem.Models.Candidato;
 using APIEnem.Models.Interfaces;
-using Newtonsoft.Json;
+using APIEnem.Models.Application;
+using APIEnem.Models.Exceptions;
+using MySql.Data.MySqlClient;
 
 namespace APIEnem.Controllers
 {
@@ -33,9 +35,13 @@ namespace APIEnem.Controllers
                     return Ok(Retorno);
                 }
             }
-            catch
+            catch (MySqlException)
             {
-                return BadRequest("Erro interno da API");
+                return BadRequest(new Json(new ResultRequest.BADREQUEST400(_dataParticipante.Identificador, new Message("CONTROLLERS:PARTICIPANTES:GET:DATABASES", "Um erro inesperado ocorreu com a database!", "Contate o suporte sobre o erro."))).ToString());
+            }
+            catch (ModelException MEx)
+            {
+                return BadRequest(new Json(new ResultRequest.BADREQUEST400(_dataParticipante.Identificador, new Message(MEx.ErrorLocal, MEx.Message, MEx.Action))).ToString());
             }
         }
     }

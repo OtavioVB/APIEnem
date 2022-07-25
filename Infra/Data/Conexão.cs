@@ -5,6 +5,7 @@ namespace APIEnem.Infra.Data
 {
     public class Conexão : IDataConnection
     {
+        public Guid Identificador { get; set; } = Guid.NewGuid();
         public MySqlConnection ConectarBanco()
         {
             try

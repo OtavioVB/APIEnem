@@ -3,11 +3,14 @@ using System.Data;
 using APIEnem.Models.Interfaces;
 using APIEnem.Models.Candidato;
 using APIEnem.Models.Application;
+using APIEnem.Models.Exceptions;
 
 namespace APIEnem.Infra.Data.Participante
 {
     public class BancoParticipante : IDataParticipante
     {
+        public Guid Identificador { get; set; } = Guid.NewGuid();
+
         private readonly IDataConnection _conexaoBanco;
 
         public BancoParticipante(IDataConnection conexaoBanco)
@@ -36,7 +39,7 @@ namespace APIEnem.Infra.Data.Participante
                         }
                         else
                         {
-                            throw new Exception("O código do participante inserido não consta no banco de dados.");
+                            throw new RequestException("O código do participante inserido não consta no banco de dados.");
                         }
                     }
                 }
