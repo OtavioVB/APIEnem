@@ -3,16 +3,21 @@ using System.Data;
 using APIEnem.Models.Interfaces;
 using APIEnem.Models.Candidato;
 using APIEnem.Models.Application;
+using APIEnem.Models.Exceptions;
 
 namespace APIEnem.Infra.Data.Participante
 {
     public class BancoParticipante : IDataParticipante
     {
+        public Guid Identificador { get; set; } = Guid.NewGuid();
+        public Guid IdentificadorConnection { get; set; }
+
         private readonly IDataConnection _conexaoBanco;
 
         public BancoParticipante(IDataConnection conexaoBanco)
         {
             this._conexaoBanco = conexaoBanco;
+            this.IdentificadorConnection = conexaoBanco.Identificador;
         }
 
         public async Task<Json> BUSCAR_INFORMACOES_DO_PARTICIPANTE(NúmeroInscrição Número)
@@ -36,7 +41,7 @@ namespace APIEnem.Infra.Data.Participante
                         }
                         else
                         {
-                            throw new Exception("O código do participante inserido não consta no banco de dados.");
+                            throw new RequestException("API:CONTROLLES:PARTICIPANTE:DATABASE_REQUEST:FIND_INSCRICAO:NOT_FOUNDED", "O número de inscrição não consta no banco de dados", "Coloque um número de inscrição validado pelo INEP");
                         }
                     }
                 }

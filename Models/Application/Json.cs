@@ -8,7 +8,7 @@ namespace APIEnem.Models.Application
     {
         private string JSON_RETORNO { get; set; }
 
-        public Json(DataTable Data)
+        public Json(object Data)
         {
             JSON_RETORNO = JsonConvert.SerializeObject(Data);
         }
