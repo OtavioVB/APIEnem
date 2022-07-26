@@ -1,4 +1,6 @@
-﻿namespace APIEnem.Models.Candidato
+﻿using APIEnem.Models.Exceptions;
+
+namespace APIEnem.Models.Candidato
 {
     public class NúmeroInscrição
     {
@@ -8,14 +10,14 @@
         {
             if (NúmeroDeInscrição.Length != 12)
             {
-                throw new Exception("O número de inscrição tem que ter exatamente 12 caracteres.");
+                throw new ModelException("INFRA:MODELS:CANDIDATO:NUMERO_INSCRICAO:NOT_DIGIT", "O número de inscrição não possui seu tamanho correto", "Insira apenas Número de Inscrições com 12 dígitos");
             }
 
             foreach (char Letra in NúmeroDeInscrição)
             {
                 if (char.IsDigit(Letra) is false)
                 {
-                    throw new Exception("O número de inscrição só pode conter dígitos.");
+                    throw new ModelException("INFRA:MODELS:CANDIDATO:NUMERO_INSCRICAO:NOT_DIGIT", "O número de inscrição não possui apenas dígitos", "Insira apenas Número de Inscrições com dígitos");
                 }
             }
 

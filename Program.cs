@@ -3,8 +3,8 @@ using APIEnem.Infra.Data;
 using APIEnem.Infra.Data.Participante;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<IDataParticipante, BancoParticipante>();
-builder.Services.AddSingleton<IDataConnection, Conexão>();
+builder.Services.AddTransient<IDataParticipante, BancoParticipante>();
+builder.Services.AddScoped<IDataConnection, Conexão>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
