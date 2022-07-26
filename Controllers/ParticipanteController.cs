@@ -24,8 +24,7 @@ namespace APIEnem.Controllers
         {
             try
             {
-                string Retorno = _dataParticipante.BUSCAR_INFORMACOES_DO_PARTICIPANTE(new NúmeroInscrição(NúmeroInscrição)).ToString();
-                return Ok(Retorno);
+                return Ok(new Json(new ResultRequest.OK200(_dataParticipante.Identificador, new Message("CONTROLLERS:PARTICIPANTES:GET:DATABASES:GOOD_RESULT", "Chamada realizada com sucesso!", "Get recebido."), _dataParticipante.IdentificadorConnection, _dataParticipante.BUSCAR_INFORMACOES_DO_PARTICIPANTE(new NúmeroInscrição(NúmeroInscrição)))).ToString());
             }
             catch (MySqlException)
             {

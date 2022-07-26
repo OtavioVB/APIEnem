@@ -1,24 +1,27 @@
 ﻿using APIEnem.Models.Interfaces;
+using System.Data;
 
 namespace APIEnem.Models.Application
 {
     public class ResultRequest
     {
-        public class OK200 : IStatusRequest
+        public class OK200 : IStatusRequest, IGoodRequest
         {
             public Guid Identificador { get; set; }
             public Guid IdentificadorDbConnection { get; set; }
             public int StatusCode { get; set; }
             public DateTime Time { get; set; }
             public Message Message { get; set; }
+            public string DataResult { get; set; }
 
-            public OK200(Guid IdentificadorDoRequest, Message info, Guid identificadorDbConnection)
+            public OK200(Guid IdentificadorDoRequest, Message info, Guid identificadorDbConnection, Json Resultado)
             {
                 this.Identificador = IdentificadorDoRequest;
                 this.StatusCode = 200;
                 this.Time = DateTime.Now;
                 this.Message = info;
                 this.IdentificadorDbConnection = identificadorDbConnection;
+                this.DataResult = Resultado.ToString();
             }
         }
 
