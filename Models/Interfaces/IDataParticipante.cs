@@ -8,6 +8,6 @@ namespace APIEnem.Models.Interfaces
     {
         public Guid Identificador { get;set;}
         public Guid IdentificadorConnection { get; set; }
-        Task<Json> BUSCAR_INFORMACOES_DO_PARTICIPANTE(NúmeroInscrição Número);
+        Json BUSCAR_INFORMACOES_DO_PARTICIPANTE(NúmeroInscrição Número);
     }
 }
