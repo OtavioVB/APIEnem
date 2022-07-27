@@ -4,8 +4,8 @@ namespace APIEnem.Models.Candidato
 {
     public class EstadoCivil
     {
-        private int CódigoEstadoCivil { get; set; }
-        private string EstadoCivilTexto { get; set; }
+        public int CódigoEstadoCivil { get; set; }
+        public string EstadoCivilTexto { get; set; }
 
 
         public EstadoCivil(int EstadoCivil, IModelEstadoCivil modelEstadoCivil)

@@ -8,6 +8,6 @@ namespace APIEnem.Models.Interfaces
     {
         public Guid Identificador { get;set;}
         public Guid IdentificadorConnection { get; set; }
-        Json BUSCAR_INFORMACOES_DO_PARTICIPANTE(NúmeroInscrição Número);
+        ParticipanteData BUSCAR_INFORMACOES_DO_PARTICIPANTE(NúmeroInscrição Número);
     }
 }

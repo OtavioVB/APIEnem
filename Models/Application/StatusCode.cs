@@ -1,5 +1,5 @@
 ﻿using APIEnem.Models.Interfaces;
-using System.Data;
+using APIEnem.Models.Candidato;
 
 namespace APIEnem.Models.Application
 {
@@ -12,16 +12,16 @@ namespace APIEnem.Models.Application
             public int StatusCode { get; set; }
             public DateTime Time { get; set; }
             public Message Message { get; set; }
-            public string DataResult { get; set; }
+            public ParticipanteData DataResult { get; set; }
 
-            public OK200(Guid IdentificadorDoRequest, Message info, Guid identificadorDbConnection, Json Resultado)
+            public OK200(Guid IdentificadorDoRequest, Message info, Guid identificadorDbConnection, ParticipanteData Resultado)
             {
                 this.Identificador = IdentificadorDoRequest;
                 this.StatusCode = 200;
                 this.Time = DateTime.Now;
                 this.Message = info;
                 this.IdentificadorDbConnection = identificadorDbConnection;
-                this.DataResult = Resultado.ToString();
+                this.DataResult = Resultado;
             }
         }
 

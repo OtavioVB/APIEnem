@@ -1,9 +1,9 @@
-﻿using APIEnem.Models.Application;
+﻿using APIEnem.Models.Candidato;
 
 namespace APIEnem.Models.Interfaces
 {
     public interface IGoodRequest
     {
-        public string DataResult { get; set; }
+        public ParticipanteData DataResult { get; set; }
     }
 }
