@@ -2,8 +2,8 @@
 {
     public class Sexo
     {
-        private char RepresentaçãoSexo { get; set; }
-        private string SexoReal { get; set; }
+        public char RepresentaçãoSexo { get; set; }
+        public string SexoReal { get; set; }
 
         public Sexo(char Alfanumérico)
         {

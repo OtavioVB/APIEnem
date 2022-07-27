@@ -1,8 +1,10 @@
-﻿namespace APIEnem.Models.Candidato
+﻿
+
+namespace APIEnem.Models.Candidato
 {
     public class Ano
     {
-        private string Valor { get; set; }
+        public string Valor { get; set; }
 
         public Ano(string Ano)
         {

@@ -6,7 +6,7 @@ namespace APIEnem.Models.Candidato
 {
     public class NúmeroInscrição
     {
-        private string Número { get; set; }
+        public string Número { get; set; }
 
         public NúmeroInscrição(string NúmeroDeInscrição)
         {

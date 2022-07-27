@@ -20,13 +20,13 @@ namespace APIEnem.Infra.Data.Participante
             this.IdentificadorConnection = conexaoBanco.Identificador;
         }
 
-        public Json BUSCAR_INFORMACOES_DO_PARTICIPANTE(NúmeroInscrição Número)
+        public ParticipanteData BUSCAR_INFORMACOES_DO_PARTICIPANTE(NúmeroInscrição Número)
         {
             try
             {
-                using (MySqlCommand Comando = _conexaoBanco.ConectarBanco().CreateCommand())
+                using (MySqlCommand Comando = _conexaoBanco.Connection.CreateCommand())
                 {
-                    Comando.CommandText = "SELECT * FROM TB_DADOS WHERE NU_INSCRICAO = @NúmeroDeInscrição";
+                    Comando.CommandText = "SELECT * FROM TB_DADOS WHERE NU_INSCRICAO = @NúmeroDeInscrição LIMIT 1;";
                     Comando.Parameters.AddWithValue("@NúmeroDeInscrição", Número.ToString());
                     using (DataTable Data = new DataTable())
                     {
@@ -37,7 +37,17 @@ namespace APIEnem.Infra.Data.Participante
 
                         if (Data.Rows.Count > 0)
                         {
-                            return new Json(Data);
+                            foreach (DataRow Linha in Data.Rows)
+                            {
+                                return new ParticipanteData(
+                                    Número, 
+                                    new Ano(Linha["NU_ANO"].ToString()), 
+                                    new FaixaEtária(Linha["TP_FAIXA_ETARIA"].ToString()), 
+                                    new Sexo(Convert.ToChar(Linha["TP_SEXO"].ToString())), 
+                                    new EstadoCivil(Convert.ToUInt16(Linha["TP_ESTADO_CIVIL"].ToString()), new TiposDeEstadoCivil()));
+                                break;
+                            }
+                            throw new RequestException("API:CONTROLLES:PARTICIPANTE:DATABASE_REQUEST:FIND_INSCRICAO:OUT_FOREACH", "O número de inscrição não consta no banco de dados", "Coloque um número de inscrição validado pelo INEP");
                         }
                         else
                         {
