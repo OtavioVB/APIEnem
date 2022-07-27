@@ -11,9 +11,14 @@ namespace APIEnem.Models.Candidato
         public NúmeroInscrição(string NúmeroDeInscrição)
         {
             Regex EXPRESSÃO_REGULAR_NÚMERO_INSCRIÇÃO = new Regex(@"^[0-9]{12}$");
-            bool EXPRESSÃO_É_CORRETA = EXPRESSÃO_REGULAR_NÚMERO_INSCRIÇÃO.IsMatch(NúmeroDeInscrição);
-
-            this.Número = NúmeroDeInscrição;
+            if (EXPRESSÃO_REGULAR_NÚMERO_INSCRIÇÃO.IsMatch(NúmeroDeInscrição) == true)
+            {
+                this.Número = NúmeroDeInscrição;
+            }
+            else
+            {
+                throw new ModelException("API:MODELS:NUMERO_INSCRICAO:REGULAR_EXPRESSION:ERROR", "O número de inscrição não é válido", "Coloque um valor de número de inscrição válido");
+            }
         }
 
         public override string ToString()
