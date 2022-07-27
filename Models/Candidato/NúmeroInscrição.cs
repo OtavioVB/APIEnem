@@ -1,4 +1,6 @@
 ﻿using APIEnem.Models.Exceptions;
+using System;
+using System.Text.RegularExpressions;
 
 namespace APIEnem.Models.Candidato
 {
@@ -8,18 +10,8 @@ namespace APIEnem.Models.Candidato
 
         public NúmeroInscrição(string NúmeroDeInscrição)
         {
-            if (NúmeroDeInscrição.Length != 12)
-            {
-                throw new ModelException("INFRA:MODELS:CANDIDATO:NUMERO_INSCRICAO:NOT_DIGIT", "O número de inscrição não possui seu tamanho correto", "Insira apenas Número de Inscrições com 12 dígitos");
-            }
-
-            foreach (char Letra in NúmeroDeInscrição)
-            {
-                if (char.IsDigit(Letra) is false)
-                {
-                    throw new ModelException("INFRA:MODELS:CANDIDATO:NUMERO_INSCRICAO:NOT_DIGIT", "O número de inscrição não possui apenas dígitos", "Insira apenas Número de Inscrições com dígitos");
-                }
-            }
+            Regex EXPRESSÃO_REGULAR_NÚMERO_INSCRIÇÃO = new Regex(@"^[0-9]{12}$");
+            bool EXPRESSÃO_É_CORRETA = EXPRESSÃO_REGULAR_NÚMERO_INSCRIÇÃO.IsMatch(NúmeroDeInscrição);
 
             this.Número = NúmeroDeInscrição;
         }
