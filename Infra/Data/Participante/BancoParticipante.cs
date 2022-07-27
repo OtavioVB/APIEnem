@@ -24,7 +24,7 @@ namespace APIEnem.Infra.Data.Participante
         {
             try
             {
-                using (MySqlCommand Comando = _conexaoBanco.ConectarBanco().CreateCommand())
+                using (MySqlCommand Comando = _conexaoBanco.Connection.CreateCommand())
                 {
                     Comando.CommandText = "SELECT * FROM TB_DADOS WHERE NU_INSCRICAO = @NúmeroDeInscrição LIMIT 1;";
                     Comando.Parameters.AddWithValue("@NúmeroDeInscrição", Número.ToString());

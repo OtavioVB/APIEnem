@@ -5,6 +5,6 @@ namespace APIEnem.Models.Interfaces
     public interface IDataConnection
     {
         public Guid Identificador { get; set; }
-        MySqlConnection ConectarBanco();
+        public MySqlConnection Connection { get; set; }
     }
 }
