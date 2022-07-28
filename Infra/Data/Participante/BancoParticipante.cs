@@ -44,7 +44,12 @@ namespace APIEnem.Infra.Data.Participante
                                     new Ano(Linha["NU_ANO"].ToString()), 
                                     new FaixaEtária(Linha["TP_FAIXA_ETARIA"].ToString()), 
                                     new Sexo(Convert.ToChar(Linha["TP_SEXO"].ToString())), 
-                                    new EstadoCivil(Convert.ToUInt16(Linha["TP_ESTADO_CIVIL"].ToString()), new TiposDeEstadoCivil()));
+                                    new EstadoCivil(Convert.ToUInt16(Linha["TP_ESTADO_CIVIL"].ToString()), new TiposDeEstadoCivil()),
+                                    new Exatas(Linha["TX_GABARITO_MT"].ToString(), Linha["TX_RESPOSTAS_MT"].ToString()),
+                                    new Naturais(Linha["TX_GABARITO_CN"].ToString(), Linha["TX_RESPOSTAS_CN"].ToString()),
+                                    new Humanas(Linha["TX_GABARITO_CH"].ToString(), Linha["TX_RESPOSTAS_CH"].ToString()),
+                                    new Linguagens(Linha["TX_GABARITO_LC"].ToString(), Linha["TX_RESPOSTAS_LC"].ToString())
+                                    );
                                 break;
                             }
                             throw new RequestException("API:CONTROLLES:PARTICIPANTE:DATABASE_REQUEST:FIND_INSCRICAO:OUT_FOREACH", "O número de inscrição não consta no banco de dados", "Coloque um número de inscrição validado pelo INEP");
