@@ -6,7 +6,8 @@ namespace APIEnem.Models.Candidato
     {
         public int Calcular(string Gabarito, string Respostas, out int Erros)
         {
-            Regex regex = new Regex("^[A-E]{45}$");
+
+            Regex regex = new Regex("^[A-E9]{50}$|^[A-E]{45}$");
             
             if (regex.IsMatch(Respostas) == false)
             {
@@ -21,6 +22,11 @@ namespace APIEnem.Models.Candidato
                 char[] GABARITO = Gabarito.ToCharArray();
                 for (int i = 0; i < GABARITO.Length; i++)
                 {
+                    if (ALTERNATIVA[i] == '9')
+                    {
+                        continue;
+                    }
+
                     if (ALTERNATIVA[i] == GABARITO[i])
                     {
                         NúmeroDeAcertos++;
