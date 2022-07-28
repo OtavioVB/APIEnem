@@ -39,6 +39,10 @@ dotnet run
 - **NúmeroInscrição**: Variável correspondente a inscrição do estudante no ENEM (string)
 - **Tipo de Retorno**: Lista de Objetos em `JSON`
 
+### Referência de Retorno
+
+Foi adicionado uma referência de como está retornando os dados na pasta `Other\response.json`.
+
 # Referências
 
 - [Microdados ENEM](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem);
