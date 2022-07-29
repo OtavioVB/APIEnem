@@ -44,5 +44,4 @@ dotnet run
 Foi adicionado uma referência de como está retornando os dados na pasta `Other\response.json`.
 
 # Referências
-
 - [Microdados ENEM](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem);

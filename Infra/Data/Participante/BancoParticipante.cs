@@ -28,7 +28,7 @@ namespace APIEnem.Infra.Data.Participante
                 {
                     Comando.CommandText = "SELECT * FROM TB_DADOS WHERE NU_INSCRICAO = @NúmeroDeInscrição LIMIT 1;";
                     Comando.Parameters.AddWithValue("@NúmeroDeInscrição", Número.ToString());
-                    using (DataTable Data = new DataTable())
+                    using (DataTable Data = new())
                     {
                         using (MySqlDataAdapter dataAdapter = new MySqlDataAdapter(Comando))
                         {
@@ -45,10 +45,10 @@ namespace APIEnem.Infra.Data.Participante
                                     new FaixaEtária(Linha["TP_FAIXA_ETARIA"].ToString()), 
                                     new Sexo(Convert.ToChar(Linha["TP_SEXO"].ToString())), 
                                     new EstadoCivil(Convert.ToUInt16(Linha["TP_ESTADO_CIVIL"].ToString()), new TiposDeEstadoCivil()),
-                                    new Exatas(Linha["TX_GABARITO_MT"].ToString(), Linha["TX_RESPOSTAS_MT"].ToString()),
-                                    new Naturais(Linha["TX_GABARITO_CN"].ToString(), Linha["TX_RESPOSTAS_CN"].ToString()),
-                                    new Humanas(Linha["TX_GABARITO_CH"].ToString(), Linha["TX_RESPOSTAS_CH"].ToString()),
-                                    new Linguagens(Linha["TX_GABARITO_LC"].ToString(), Linha["TX_RESPOSTAS_LC"].ToString())
+                                    new Exatas(Linha["TX_GABARITO_MT"].ToString(), Linha["TX_RESPOSTAS_MT"].ToString(), Convert.ToDouble(Linha["NU_NOTA_MT"].ToString())),
+                                    new Naturais(Linha["TX_GABARITO_CN"].ToString(), Linha["TX_RESPOSTAS_CN"].ToString(), Convert.ToDouble(Linha["NU_NOTA_CN"].ToString())),
+                                    new Humanas(Linha["TX_GABARITO_CH"].ToString(), Linha["TX_RESPOSTAS_CH"].ToString(), Convert.ToDouble(Linha["NU_NOTA_CH"].ToString())),
+                                    new Linguagens(Linha["TX_GABARITO_LC"].ToString(), Linha["TX_RESPOSTAS_LC"].ToString(), Convert.ToDouble(Linha["NU_NOTA_LC"].ToString()))
                                     );
                                 break;
                             }

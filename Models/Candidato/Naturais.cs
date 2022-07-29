@@ -9,14 +9,16 @@ namespace APIEnem.Models.Candidato
         public int Acertos { get; set; }
         public int Erros { get; set; }
         public int Questões { get; set; } = 45;
+        public double Nota { get; set; }
 
-        public Naturais(string gabarito, string respostas)
+        public Naturais(string gabarito, string respostas, double nota)
         {
             int Erro = 0;
             this.Gabarito = gabarito;
             this.Respostas = respostas;
             this.Acertos = Calcular(Gabarito, Respostas, out Erro);
             this.Erros = Erro;
+            this.Nota = nota;
         }
     }
 }

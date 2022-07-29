@@ -7,5 +7,6 @@
         public int Acertos { get; set; }
         public int Erros { get; set; }
         public int Questões { get; set; }
+        public double Nota { get; set; }
     }
 }
