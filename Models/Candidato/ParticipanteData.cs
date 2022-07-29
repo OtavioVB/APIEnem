@@ -11,8 +11,19 @@
         public Humanas CiênciasHumanasESuasTecnologias { get; set; }
         public Exatas MatemáticaESuasTecnologias { get; set; }
         public Naturais CiênciasDaNaturezaESuasTecnologias { get; set; }
+        public Redação ProvaDissertativa { get; set; }
 
-        public ParticipanteData(NúmeroInscrição numInscrição, Ano anoEnem, FaixaEtária faixaEtária, Sexo sexo, EstadoCivil estadoCivil, Exatas matemáticaESuasTecnologias, Naturais ciênciasDaNaturezaESuasTecnologias, Humanas humanas, Linguagens linguagens)
+        public ParticipanteData(
+            NúmeroInscrição numInscrição, 
+            Ano anoEnem,
+            FaixaEtária faixaEtária,
+            Sexo sexo,
+            EstadoCivil estadoCivil,
+            Exatas matemáticaESuasTecnologias,
+            Naturais ciênciasDaNaturezaESuasTecnologias,
+            Humanas humanas,
+            Linguagens linguagens,
+            Redação provaDissertativa)
         {
             this.númeroInscrição = numInscrição;
             this.AnoDoEnem = anoEnem;
@@ -23,6 +34,7 @@
             this.CiênciasDaNaturezaESuasTecnologias = ciênciasDaNaturezaESuasTecnologias;
             this.LinguagensESuasTecnologias = linguagens;
             this.CiênciasHumanasESuasTecnologias = humanas;
+            this.ProvaDissertativa = provaDissertativa;
         }
     }
 }
