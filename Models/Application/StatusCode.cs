@@ -5,7 +5,7 @@ namespace APIEnem.Models.Application
 {
     public class ResultRequest
     {
-        public class OK200 : IStatusRequest, IGoodRequest
+        public class OK200 : IGoodRequest
         {
             public Guid Identificador { get; set; }
             public Guid IdentificadorDbConnection { get; set; }
