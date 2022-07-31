@@ -48,7 +48,8 @@ namespace APIEnem.Infra.Data.Participante
                                     new Exatas(Linha["TX_GABARITO_MT"].ToString(), Linha["TX_RESPOSTAS_MT"].ToString(), Convert.ToDouble(Linha["NU_NOTA_MT"].ToString())),
                                     new Naturais(Linha["TX_GABARITO_CN"].ToString(), Linha["TX_RESPOSTAS_CN"].ToString(), Convert.ToDouble(Linha["NU_NOTA_CN"].ToString())),
                                     new Humanas(Linha["TX_GABARITO_CH"].ToString(), Linha["TX_RESPOSTAS_CH"].ToString(), Convert.ToDouble(Linha["NU_NOTA_CH"].ToString())),
-                                    new Linguagens(Linha["TX_GABARITO_LC"].ToString(), Linha["TX_RESPOSTAS_LC"].ToString(), Convert.ToDouble(Linha["NU_NOTA_LC"].ToString()))
+                                    new Linguagens(Linha["TX_GABARITO_LC"].ToString(), Linha["TX_RESPOSTAS_LC"].ToString(), Convert.ToDouble(Linha["NU_NOTA_LC"].ToString())),
+                                    new Redação(Convert.ToInt16(Linha["NU_NOTA_REDACAO"].ToString()), Convert.ToInt16(Linha["NU_NOTA_COMP1"].ToString()), Convert.ToInt16(Linha["NU_NOTA_COMP2"].ToString()), Convert.ToInt16(Linha["NU_NOTA_COMP3"].ToString()), Convert.ToInt16(Linha["NU_NOTA_COMP4"].ToString()), Convert.ToInt16(Linha["NU_NOTA_COMP5"].ToString()))
                                     );
                                 break;
                             }
