@@ -6,9 +6,7 @@ namespace APIEnem.Models.Candidato
     {
         public int Calcular(string Gabarito, string Respostas, out int Erros)
         {
-
             Regex regex = new Regex("^[A-E9]{50}$|^[A-E]{45}$");
-            
             if (regex.IsMatch(Respostas) == false)
             {
                 Erros = 45;
