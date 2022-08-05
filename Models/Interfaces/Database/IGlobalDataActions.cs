@@ -5,6 +5,6 @@ namespace APIEnem.Models.Interfaces.Database
 {
     public interface IGlobalDataActions
     {
-        public DataTable ConverterComandoParaDataTable(MySqlCommand Comando);
+        public DataTable? ConverterComandoParaDataTable(MySqlCommand Comando);
     }
 }

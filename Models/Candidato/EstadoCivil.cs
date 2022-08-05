@@ -8,15 +8,15 @@ namespace APIEnem.Models.Candidato
         public string EstadoCivilTexto { get; set; }
 
 
-        public EstadoCivil(int EstadoCivil, IModelEstadoCivil modelEstadoCivil)
+        public EstadoCivil(int estadoCivil, IModelEstadoCivil modelEstadoCivil)
         {
-            if (EstadoCivil is not < 5 && EstadoCivil is not >= 0)
+            if (estadoCivil is not < 5 && estadoCivil is not >= 0)
             {
                 throw new Exception("Insira um Estado Civil válido");
             }
 
-            this.EstadoCivilTexto = modelEstadoCivil.CONVERTER_CÓDIGO_CIVIL_PARA_TEXTO(EstadoCivil);
-            this.CódigoEstadoCivil = EstadoCivil;
+            EstadoCivilTexto = modelEstadoCivil.ConverterCódigoCivilParaTexto(estadoCivil);
+            CódigoEstadoCivil = estadoCivil;
         }
     }
 }

@@ -6,11 +6,11 @@
         public string ErrorLocal { get; set; }
         public string Action { get; set; }
 
-        public RequestException(string local_code_error, string error_message, string action_message)
+        public RequestException(string localCodeError,string errorMessage, string actionMessage)
         {
-            this.Message = error_message;
-            this.ErrorLocal = local_code_error;
-            this.Action = action_message;
+            Message = errorMessage;
+            ErrorLocal = localCodeError;
+            Action = actionMessage;
         }
     }
 }

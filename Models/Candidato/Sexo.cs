@@ -5,23 +5,16 @@
         public char RepresentaçãoSexo { get; set; }
         public string SexoReal { get; set; }
 
-        public Sexo(char Alfanumérico)
+        public Sexo(char alfanumérico)
         {
-            if (char.ToUpper(Alfanumérico) != 'F' && char.ToUpper(Alfanumérico) != 'M')
+            if (char.ToUpper(alfanumérico) != 'F' && char.ToUpper(alfanumérico) != 'M')
             {
                 throw new Exception("O alfanumérico inserido não é valido.");
             }
 
-            if (char.ToUpper(Alfanumérico) == 'F')
-            {
-                this.SexoReal = "Feminino";
-            }
-            else
-            {
-                this.SexoReal = "Masculino";
-            }
+            SexoReal = char.ToUpper(alfanumérico) == 'F' ? "Feminino" : "Masculino";
 
-            this.RepresentaçãoSexo = Alfanumérico;
+            RepresentaçãoSexo = alfanumérico;
         }
 
         public char CódigoSexo()

@@ -6,18 +6,17 @@ namespace APIEnem.Infra.Data
 {
     public class GlobalDataActions : IGlobalDataActions
     {
-        public DataTable ConverterComandoParaDataTable(MySqlCommand Comando)
+        public DataTable? ConverterComandoParaDataTable(MySqlCommand comando)
         {
-            using (Comando)
+            using (comando)
             {
-                using (DataTable DataResultadoComandoSql = new())
+                using (DataTable dataResultadoComandoSql = new())
                 {
-                    using (MySqlDataAdapter DadosAdaptadosParaDataTable = new(Comando))
+                    using (MySqlDataAdapter dadosAdaptadosParaDataTable = new(comando))
                     {
-                        DadosAdaptadosParaDataTable.Fill(DataResultadoComandoSql);
+                        dadosAdaptadosParaDataTable.Fill(dataResultadoComandoSql);
 
-                        if (DataResultadoComandoSql.Rows.Count > 0 is true) return DataResultadoComandoSql;
-                        return null;
+                        return dataResultadoComandoSql.Rows.Count > 0 ? dataResultadoComandoSql : null; 
                     }
                 }
             }

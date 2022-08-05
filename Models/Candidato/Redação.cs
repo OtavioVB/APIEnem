@@ -12,20 +12,20 @@ namespace APIEnem.Models.Candidato
         public int Competencia5 { get; set; }
         public int MediaCompetencia { get; set; }
 
-        public Redação(int NotaGeral, int Competencia1, int Competencia2, int Competencia3, int Competencia4, int Competencia5)
+        public Redação(int notaGeral, int competencia1, int competencia2, int competencia3, int competencia4, int competencia5)
         {
-            this.NotaGeral = NotaGeral;
-            this.Competencia1 = Competencia1;
-            this.Competencia2 = Competencia2;
-            this.Competencia3 = Competencia3;
-            this.Competencia4 = Competencia4;
-            this.Competencia5 = Competencia5;
-            this.MediaCompetencia = CalcularMedia(NotaGeral);
+            NotaGeral = notaGeral;
+            Competencia1 = competencia1;
+            Competencia2 = competencia2;
+            Competencia3 = competencia3;
+            Competencia4 = competencia4;
+            Competencia5 = competencia5;
+            MediaCompetencia = CalcularMedia(notaGeral);
         }
 
-        private int CalcularMedia(int NotaGeral)
+        private static int CalcularMedia(int notaGeral)
         {
-            return NotaGeral / 5;
+            return notaGeral / 5;
         }
     }
 }

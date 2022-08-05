@@ -3,9 +3,9 @@ using APIEnem.Models.Candidato;
 
 namespace APIEnem.Models.Application
 {
-    public class ResultRequest
+    public abstract class ResultRequest
     {
-        public class OK200 : IGoodRequest
+        public class Ok200 : IGoodRequest
         {
             public Guid Identificador { get; set; }
             public Guid IdentificadorDbConnection { get; set; }
@@ -14,18 +14,18 @@ namespace APIEnem.Models.Application
             public Message Message { get; set; }
             public ParticipanteData DataResult { get; set; }
 
-            public OK200(Guid IdentificadorDoRequest, Message info, Guid identificadorDbConnection, ParticipanteData Resultado)
+            public Ok200(Guid identificadorDoRequest, Message info, Guid identificadorDbConnection, ParticipanteData resultado)
             {
-                this.Identificador = IdentificadorDoRequest;
-                this.StatusCode = 200;
-                this.Time = DateTime.Now;
-                this.Message = info;
-                this.IdentificadorDbConnection = identificadorDbConnection;
-                this.DataResult = Resultado;
+                Identificador = identificadorDoRequest;
+                StatusCode = 200;
+                Time = DateTime.Now;
+                Message = info;
+                IdentificadorDbConnection = identificadorDbConnection;
+                DataResult = resultado;
             }
         }
 
-        public class BADREQUEST400 : IStatusRequest
+        public class BadRequest400 : IStatusRequest
         {
             public Guid Identificador { get; set; }
             public Guid IdentificadorDbConnection { get; set; }
@@ -33,17 +33,17 @@ namespace APIEnem.Models.Application
             public DateTime Time { get; set; }
             public Message Message { get; set; }
 
-            public BADREQUEST400(Guid IdentificadorDoRequest, Message info, Guid identificadorDbConnection)
+            public BadRequest400(Guid identificadorDoRequest, Message info, Guid identificadorDbConnection)
             {
-                this.Identificador = IdentificadorDoRequest;
-                this.StatusCode = 400;
-                this.Time = DateTime.Now;
-                this.Message = info;
-                this.IdentificadorDbConnection = identificadorDbConnection;
+                Identificador = identificadorDoRequest;
+                StatusCode = 400;
+                Time = DateTime.Now;
+                Message = info;
+                IdentificadorDbConnection = identificadorDbConnection;
             }
         }
 
-        public class NOTFOUND404 : IStatusRequest
+        public class NotFound404 : IStatusRequest
         {
             public Guid Identificador { get; set; }
             public Guid IdentificadorDbConnection { get; set; }
@@ -52,13 +52,13 @@ namespace APIEnem.Models.Application
             public Message Message { get; set; }
 
 
-            public NOTFOUND404(Guid IdentificadorDoRequest, Message info, Guid identificadorDbConnection)
+            public NotFound404(Guid identificadorDoRequest, Message info, Guid identificadorDbConnection)
             {
-                this.Identificador = IdentificadorDoRequest;
-                this.StatusCode = 404;
-                this.Time = DateTime.Now;
-                this.Message = info;
-                this.IdentificadorDbConnection = identificadorDbConnection;
+                Identificador = identificadorDoRequest;
+                StatusCode = 404;
+                Time = DateTime.Now;
+                Message = info;
+                IdentificadorDbConnection = identificadorDbConnection;
             }
         }
     }

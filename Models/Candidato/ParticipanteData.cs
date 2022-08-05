@@ -25,16 +25,16 @@
             Linguagens linguagens,
             Redação provaDissertativa)
         {
-            this.númeroInscrição = numInscrição;
-            this.AnoDoEnem = anoEnem;
-            this.FaixaEtária = faixaEtária;
-            this.Sexo = sexo;
-            this.EstadoCivil = estadoCivil;
-            this.MatemáticaESuasTecnologias = matemáticaESuasTecnologias;
-            this.CiênciasDaNaturezaESuasTecnologias = ciênciasDaNaturezaESuasTecnologias;
-            this.LinguagensESuasTecnologias = linguagens;
-            this.CiênciasHumanasESuasTecnologias = humanas;
-            this.ProvaDissertativa = provaDissertativa;
+            númeroInscrição = numInscrição;
+            AnoDoEnem = anoEnem;
+            FaixaEtária = faixaEtária;
+            Sexo = sexo;
+            EstadoCivil = estadoCivil;
+            MatemáticaESuasTecnologias = matemáticaESuasTecnologias;
+            CiênciasDaNaturezaESuasTecnologias = ciênciasDaNaturezaESuasTecnologias;
+            LinguagensESuasTecnologias = linguagens;
+            CiênciasHumanasESuasTecnologias = humanas;
+            ProvaDissertativa = provaDissertativa;
         }
     }
 }

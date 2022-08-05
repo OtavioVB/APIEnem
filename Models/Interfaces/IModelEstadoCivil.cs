@@ -2,6 +2,6 @@
 {
     public interface IModelEstadoCivil
     {
-        public string CONVERTER_CÓDIGO_CIVIL_PARA_TEXTO(int CÓDIGO_ESTADO_CIVIL);
+        public string ConverterCódigoCivilParaTexto(int códigoEstadoCivil);
     }
 }

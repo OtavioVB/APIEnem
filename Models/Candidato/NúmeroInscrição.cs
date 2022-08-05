@@ -8,12 +8,13 @@ namespace APIEnem.Models.Candidato
     {
         public string Número { get; set; }
 
-        public NúmeroInscrição(string NúmeroDeInscrição)
+        public NúmeroInscrição(string númeroDeInscrição)
         {
-            Regex EXPRESSÃO_REGULAR_NÚMERO_INSCRIÇÃO = new Regex(@"^[0-9]{12}$");
-            if (EXPRESSÃO_REGULAR_NÚMERO_INSCRIÇÃO.IsMatch(NúmeroDeInscrição) == true)
+            var expressãoRegularNúmeroInscrição = new Regex(@"^[0-9]{12}$");
+            
+            if (expressãoRegularNúmeroInscrição.IsMatch(númeroDeInscrição))
             {
-                this.Número = NúmeroDeInscrição;
+                Número = númeroDeInscrição;
             }
             else
             {

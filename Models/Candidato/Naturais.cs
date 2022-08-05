@@ -13,12 +13,11 @@ namespace APIEnem.Models.Candidato
 
         public Naturais(string gabarito, string respostas, double nota)
         {
-            int Erro = 0;
-            this.Gabarito = gabarito;
-            this.Respostas = respostas;
-            this.Acertos = Calcular(Gabarito, Respostas, out Erro);
-            this.Erros = Erro;
-            this.Nota = nota;
+            Gabarito = gabarito;
+            Respostas = respostas;
+            Acertos = Calcular(Gabarito, Respostas, out var erro);
+            Erros = erro;
+            Nota = nota;
         }
     }
 }

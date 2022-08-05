@@ -4,22 +4,19 @@
     {
         public string Valor { get; set; }
         
-        public FaixaEtária(string CódigoDeFaixa)
+        public FaixaEtária(string códigoDeFaixa)
         {
-            if (CódigoDeFaixa.Length != 1 && CódigoDeFaixa.Length != 2)
+            if (códigoDeFaixa.Length != 1 && códigoDeFaixa.Length != 2)
             {
                 throw new Exception("Código de faixa não condiz com o esperado");
             }
 
-            foreach (char Letra in CódigoDeFaixa)
+            if (códigoDeFaixa.Any(letra => char.IsDigit(letra) is false))
             {
-                if (char.IsDigit(Letra) is false)
-                {
-                    throw new Exception("O Código de faixa etária só pode conter dígitos");
-                }
+                throw new Exception("O Código de faixa etária só pode conter dígitos");
             }
 
-            this.Valor = CódigoDeFaixa;
+            Valor = códigoDeFaixa;
         }
 
         public override string ToString()

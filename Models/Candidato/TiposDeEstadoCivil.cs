@@ -4,7 +4,7 @@ namespace APIEnem.Models.Candidato
 {
     public class TiposDeEstadoCivil : IModelEstadoCivil
     {
-        Dictionary<int, string> _tiposEstadoCivil = new Dictionary<int, string>();
+        private Dictionary<int, string> _tiposEstadoCivil = new();
         
         public TiposDeEstadoCivil()
         {
@@ -15,17 +15,14 @@ namespace APIEnem.Models.Candidato
             _tiposEstadoCivil.Add(4, "Viúvo(a)");
         }
 
-        public string CONVERTER_CÓDIGO_CIVIL_PARA_TEXTO(int CÓDIGO_ESTADO_CIVIL)
+        public string ConverterCódigoCivilParaTexto(int códigoEstadoCivil)
         {
-            string? Retorno;
-            if (_tiposEstadoCivil.TryGetValue(CÓDIGO_ESTADO_CIVIL, out Retorno) is true)
+            if (_tiposEstadoCivil.TryGetValue(códigoEstadoCivil, out var retorno))
             {
-                return Retorno;
+                return retorno;
             }
-            else
-            {
-                throw new Exception("Não foi possível encontrar o tipo de estado civil com esse código!");
-            }
+            
+            throw new Exception("Não foi possível encontrar o tipo de estado civil com esse código!");
         }
     }
 }

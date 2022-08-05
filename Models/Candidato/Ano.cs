@@ -1,27 +1,25 @@
-﻿
-
-namespace APIEnem.Models.Candidato
+﻿namespace APIEnem.Models.Candidato
 {
     public class Ano
     {
         public string Valor { get; set; }
 
-        public Ano(string Ano)
+        public Ano(string ano)
         {
-            if (Ano.Length != 4)
+            if (ano.Length != 4)
             {
                 throw new Exception("O ano não condiz.");
             }
 
-            foreach (char Letra in Ano)
+            foreach (char letra in ano)
             {
-                if (char.IsDigit(Letra) is false)
+                if (!char.IsDigit(letra))
                 {
                     throw new Exception("O Ano não pode conter caracteres diferentes de dígitos.");
                 }
             }
 
-            this.Valor = Ano;
+            Valor = ano;
         }
 
         public override string ToString()

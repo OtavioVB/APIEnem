@@ -4,39 +4,41 @@ namespace APIEnem.Models.Candidato
 {
     public abstract class Resultado
     {
-        public int Calcular(string Gabarito, string Respostas, out int Erros)
+        protected static int Calcular(string Gabarito, string Respostas, out int erros)
         {
-            Regex regex = new Regex("^[A-E9]{50}$|^[A-E]{45}$");
-            if (regex.IsMatch(Respostas) == false)
+            var regex = new Regex("^[A-E9]{50}$|^[A-E]{45}$");
+            
+            if (!regex.IsMatch(Respostas))
             {
-                Erros = 45;
+                erros = 45;
                 return 0;
             }
-            else
+            
+            var númeroDeAcertos = 0;
+            var númeroDeErros = 0;
+            var alternativa = Respostas.ToCharArray();
+            var gabarito = Gabarito.ToCharArray();
+            
+            for (var i = 0; i < gabarito.Length; i++)
             {
-                int NúmeroDeAcertos = 0;
-                int NúmeroDeErros = 0;
-                char[] ALTERNATIVA = Respostas.ToCharArray();
-                char[] GABARITO = Gabarito.ToCharArray();
-                for (int i = 0; i < GABARITO.Length; i++)
+                if (alternativa[i] == '9')
                 {
-                    if (ALTERNATIVA[i] == '9')
-                    {
-                        continue;
-                    }
-
-                    if (ALTERNATIVA[i] == GABARITO[i])
-                    {
-                        NúmeroDeAcertos++;
-                    }
-                    else
-                    {
-                        NúmeroDeErros++;
-                    }
+                    continue;
                 }
-                Erros = NúmeroDeErros;
-                return NúmeroDeAcertos;
+
+                if (alternativa[i] == gabarito[i])
+                {
+                    númeroDeAcertos++;
+                }
+                else
+                {
+                    númeroDeErros++;
+                }
             }
+            
+            erros = númeroDeErros;
+            
+            return númeroDeAcertos;
         }
     }
 }

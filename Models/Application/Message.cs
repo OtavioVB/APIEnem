@@ -6,11 +6,11 @@
         public string Definition { get; set; }
         public string Action { get; set; }
 
-        public Message(string LocationResultCode, string Message, string Action)
+        public Message(string locationResultCode, string message, string action)
         {
-            this.LocationResultCode = LocationResultCode;
-            this.Definition = Message;
-            this.Action = Action;
+            LocationResultCode = locationResultCode;
+            Definition = message;
+            Action = action;
         }
     }
 }
