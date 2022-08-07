@@ -21,4 +21,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run Tests
-        run: echo É necessário implementar os testes
+        run: echo Tests
