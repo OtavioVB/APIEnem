@@ -4,6 +4,9 @@ APIEnem.API/Properties
 APIEnem.Domain/bin
 APIEnem.Domain/obj
 APIEnem.Domain/Properties
+APIEnem.DomainTests/bin
+APIEnem.DomainTests/obj
+APIEnem.DomainTests/Properties
 APIEnem.Infra/bin
 APIEnem.Infra/obj
 APIEnem.Infra/Properties
