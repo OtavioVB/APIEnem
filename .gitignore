@@ -1,0 +1,13 @@
+APIEnem.API/bin
+APIEnem.API/obj
+APIEnem.API/Properties
+APIEnem.Domain/bin
+APIEnem.Domain/obj
+APIEnem.Domain/Properties
+APIEnem.Infra/bin
+APIEnem.Infra/obj
+APIEnem.Infra/Properties
+
+*.sln
+.vs
+.git
