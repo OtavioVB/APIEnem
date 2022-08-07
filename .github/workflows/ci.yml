@@ -1,0 +1,24 @@
+name: Continuous Integration
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Debug Project
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.302'
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    needs: build
+    environment: Desenvolvimento
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run Tests
+      run: echo É necessário implementar os testes no projeto
