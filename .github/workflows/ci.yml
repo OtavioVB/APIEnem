@@ -1,12 +1,12 @@
-name: CI
+name: Continuous Integration
 
 on: [pull_request]
 
 jobs:
   build:
-    name: Debug Project
+    name: Debbuging Project
     runs-on: ubuntu-latest
-    steps:
+    steps: 
     - uses: actions/checkout@v1
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
@@ -16,9 +16,8 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
-    environment: Desenvolvimento
     needs: build
     steps:
       - uses: actions/checkout@v1
       - name: Run Tests
-        run: echo Tests
+        run: echo Test
