@@ -36,7 +36,7 @@ jobs:
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.Infra
           usedocker: true 
-          branch: master
+          remote_branch: "master"   
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -44,7 +44,7 @@ jobs:
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.Domain
           usedocker: true 
-          branch: master
+          remote_branch: "master"   
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -52,4 +52,4 @@ jobs:
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.API
           usedocker: true  
-          branch: master   
+          remote_branch: "master"   
