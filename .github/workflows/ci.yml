@@ -1,9 +1,6 @@
 name: Continuous Integration and Deployment
 
-on:
-  push:
-    branches: 
-    - "master"
+on: [push]
 
 jobs:
   build:
