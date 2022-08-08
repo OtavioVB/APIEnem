@@ -39,6 +39,9 @@ jobs:
       - run: |
           git config --global user.email "otaviovb.developer@gmail.com"
           git config --global user.name "OtavioVB"
+          git add -A
+          git commit -m "TEST"
+          git push --force
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -46,4 +49,3 @@ jobs:
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.API
           usedocker: true   
-          dontuseforce: 1
