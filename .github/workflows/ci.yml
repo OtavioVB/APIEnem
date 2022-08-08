@@ -31,7 +31,11 @@ jobs:
     needs: tests
     environment: Produção
     steps:
-      - checkout
+      - uses: actions/checkout@v2
+      - name: App Settings Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: "APIEnem.Infra/appsettings.json"
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
