@@ -1,4 +1,4 @@
-name: Continuous Integration and Deployment
+name: Continuous Integration and Continuous Deployment
 
 on: [push]
 
@@ -30,26 +30,26 @@ jobs:
 
     steps:
       - uses: akhileshns/heroku-deploy@v3.12.12
-      - name: Deploy Infra
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.Infra
           usedocker: true 
+          branch: master
       - uses: akhileshns/heroku-deploy@v3.12.12
-      - name: Deploy Domínio
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.Domain
           usedocker: true 
+          branch: master
       - uses: akhileshns/heroku-deploy@v3.12.12
-      - name: Deploy API
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.API
           usedocker: true  
+          branch: master   
