@@ -46,3 +46,4 @@ jobs:
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.API
           usedocker: true   
+          dontuseforce: 1
