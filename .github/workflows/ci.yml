@@ -35,28 +35,6 @@ jobs:
       - run: |
           git config --global user.email "otaviovb.developer@gmail.com"
           git config --global user.name "OtavioVB"
-      - run: |
-          docker login --username=${{secrets.USER_HEROKU}} --password=${{secrets.PASSWORD_HEROKU}} registry.heroku.com
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "apienem"
-          heroku_email: "otaviovb.developer@gmail.com"
-          appdir: APIEnem.Infra
-          usedocker: true 
-      - run: |
-          git config --global user.email "otaviovb.developer@gmail.com"
-          git config --global user.name "OtavioVB"
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "apienem"
-          heroku_email: "otaviovb.developer@gmail.com"
-          appdir: APIEnem.Domain
-          usedocker: true 
-      - run: |
-          git config --global user.email "otaviovb.developer@gmail.com"
-          git config --global user.name "OtavioVB"
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
