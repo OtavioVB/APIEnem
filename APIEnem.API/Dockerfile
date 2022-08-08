@@ -6,7 +6,7 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["APIEnem.API.csproj", "."]
-RUN dotnet restore "./APIEnem.API.csproj"
+RUN dotnet restore "APIEnem.API.csproj"
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "APIEnem.API.csproj" -c Release -o /app/build
