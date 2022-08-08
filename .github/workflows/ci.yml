@@ -40,7 +40,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
-          appdir: "APIEnem.Infra"
+          appdir: APIEnem.Infra
           usedocker: true 
       - run: |
           git config --global user.email "otaviovb.developer@gmail.com"
@@ -50,7 +50,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
-          appdir: "APIEnem.Domain"
+          appdir: APIEnem.Domain
           usedocker: true 
       - run: |
           git config --global user.email "otaviovb.developer@gmail.com"
@@ -60,5 +60,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
-          appdir: "APIEnem.API"
+          appdir: APIEnem.API
           usedocker: true   
