@@ -30,18 +30,8 @@ Crie um Banco de Dados MySql e Importe por meio do arquivo `.csv` os dados. Rode
 dotnet run
 ```
 
-## Atualizações da API
-
-### Buscar informações do Usuário
-
-- **Método**: `GET`
-- **Rota**: localhost:7225/api/v1/content/Participante/{NúmeroInscrição}
-- **NúmeroInscrição**: Variável correspondente a inscrição do estudante no ENEM (string)
-- **Tipo de Retorno**: Lista de Objetos em `JSON`
-
-### Referência de Retorno
-
-Foi adicionado uma referência de como está retornando os dados na pasta `Other\response.json`.
+## Conheça um pedaço da API em:
+## [API Enem](https://apienem.herokuapp.com/swagger/index.html)
 
 # Referências
 - [Microdados ENEM](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem);
