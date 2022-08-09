@@ -13,6 +13,7 @@ builder.Services.AddScoped<IDataParticipante, BancoParticipante>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.WebHost.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
