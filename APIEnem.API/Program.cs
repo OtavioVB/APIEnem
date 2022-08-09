@@ -6,6 +6,7 @@ using APIEnem.Infra.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
 builder.Services.AddScoped<IDataConnection, Conexão>();
 builder.Services.AddScoped<IGlobalDataActions, GlobalDataActions>();
 builder.Services.AddScoped<IParticipanteDataActions, ParticipanteActions>();
@@ -13,7 +14,6 @@ builder.Services.AddScoped<IDataParticipante, BancoParticipante>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.WebHost.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
