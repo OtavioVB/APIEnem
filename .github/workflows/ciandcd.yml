@@ -16,7 +16,7 @@ jobs:
       run: dotnet restore APIEnem.API
     - name: Build Project
       run: dotnet build APIEnem.API
-  
+
   tests:
     name: Domain Tests
     runs-on: ubuntu-latest
