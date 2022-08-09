@@ -46,3 +46,12 @@ jobs:
           heroku_email: "otaviovb.developer@gmail.com"
           appdir: APIEnem.API
           usedocker: true   
+          
+      - name: "Login to heroku registry"
+        run: heroku container:login
+
+      - name: "Build and push to heroku registry"
+        run: heroku container:push web --app apienem
+
+      - name: "Releases the container"
+        run: heroku container:release web --app apienem
