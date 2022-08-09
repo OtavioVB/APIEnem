@@ -27,7 +27,7 @@ jobs:
         run: dotnet test APIEnem.DomainTests
         
   deploy: 
-    name: Deploy Project
+    name: Deploy Project in Heroku
     runs-on: ubuntu-latest
     environment: Produção
     needs: tests
