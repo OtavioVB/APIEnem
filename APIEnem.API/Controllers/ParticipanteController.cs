@@ -3,7 +3,7 @@ using APIEnem.Domain.Models.Candidato;
 using APIEnem.Domain.Models.Interfaces;
 using APIEnem.Domain.Models.Application;
 using APIEnem.Domain.Models.Exceptions;
-using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace APIEnem.API.Controllers
 {
@@ -26,7 +26,7 @@ namespace APIEnem.API.Controllers
             {
                 return Ok(new Json(new ResultRequest.Ok200(_dataParticipante.Identificador,new Message("CONTROLLERS:PARTICIPANTES:GET:DATABASES:GOOD_RESULT","Chamada realizada com sucesso!", "Get recebido."), _dataParticipante.IdentificadorConnection, _dataParticipante.BuscarInformaçõesDoParticipante(new NúmeroInscrição(NúmeroInscrição)))).ToString());
             }
-            catch (MySqlException)
+            catch (NpgsqlException)
             {
                 return BadRequest(new Json(new ResultRequest.BadRequest400(_dataParticipante.Identificador, new Message("CONTROLLERS:PARTICIPANTES:GET:DATABASES", "Um erro inesperado ocorreu com a database!", "Contate o suporte sobre o erro."), _dataParticipante.IdentificadorConnection)).ToString());
             }

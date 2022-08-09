@@ -25,10 +25,8 @@ namespace APIEnem.Infra.Data.Participante
             {
                 using (var comando = _conexaoBanco.Connection.CreateCommand())
                 {
-                    comando.CommandText = "SELECT * FROM TB_DADOS WHERE NU_INSCRICAO = @NúmeroDeInscrição LIMIT 1;";
-                    
+                    comando.CommandText = "SELECT * FROM TB_DADOS WHERE NU_INSCRICAO=@NúmeroDeInscrição";
                     comando.Parameters.AddWithValue("@NúmeroDeInscrição", Número.ToString());
-                    
                     return _dataActions.ConverterDataTableParaParticipanteData(_dataActions.ConverterComandoParaDataTable(comando));
                 }
             }
