@@ -41,13 +41,12 @@ jobs:
           git config --global user.name "OtavioVB"
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
+          docker_heroku_process_type: web
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
           justlogin: true
-          
-          appdir: APIEnem.API
-          usedocker: true   
+          appdir: APIEnem.API 
           
       - name: "Login to heroku registry"
         run: heroku container:login
