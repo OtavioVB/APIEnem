@@ -3,7 +3,7 @@ name: Continuous Integration and Continuous Deployment
 on:
   push:
     branches: 
-    - "*"
+    - "master"
 
 jobs:
   build:
@@ -15,41 +15,21 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '6.0.302'
-
-  tests:
-    name: Domain Tests
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v1
-      - name: Run Tests
-        run: dotnet test APIEnem.DomainTests
-
+        
   deploy: 
     name: Deploy Project
     runs-on: ubuntu-latest
-    needs: tests
     environment: Produção
     steps:
       - uses: actions/checkout@v1
+      - run: |
+          git config --global user.email "otaviovb.developer@gmail.com"
+          git config --global user.name "OtavioVB"
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
+          docker_heroku_process_type: web
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "apienem"
           heroku_email: "otaviovb.developer@gmail.com"
-          appdir: "APIEnem.Infra"
-          usedocker: true 
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "apienem"
-          heroku_email: "otaviovb.developer@gmail.com"
-          appdir: "APIEnem.Domain"
-          usedocker: true 
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "apienem"
-          heroku_email: "otaviovb.developer@gmail.com"
-          appdir: "APIEnem.API"
-          usedocker: true   
+          appdir: APIEnem.API 
+          usedocker: true
