@@ -2,13 +2,17 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["APIEnem.API.csproj", "."]
-RUN dotnet restore "./APIEnem.API.csproj"
+COPY ["APIEnem.API/APIEnem.API.csproj", "APIEnem.API/"]
+COPY ["APIEnem.Domain/APIEnem.Domain.csproj", "APIEnem.Domain/"]
+COPY ["APIEnem.Infra/APIEnem.Infra.csproj", "APIEnem.Infra/"]
+RUN dotnet restore "APIEnem.API/APIEnem.API.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/APIEnem.API"
 RUN dotnet build "APIEnem.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
