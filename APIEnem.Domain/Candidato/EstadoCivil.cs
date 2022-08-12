@@ -10,7 +10,7 @@ namespace APIEnem.Domain.Models.Candidato
 
         public EstadoCivil(int estadoCivil, IModelEstadoCivil modelEstadoCivil)
         {
-            if (estadoCivil is not < 5 && estadoCivil is not >= 0)
+            if (estadoCivil > 4 is true || estadoCivil < 0 is true)
             {
                 throw new Exception("Insira um Estado Civil válido");
             }
