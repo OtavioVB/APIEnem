@@ -4,7 +4,7 @@ using APIEnem.Domain.Models.Candidato;
 namespace APIEnem.DomainTests
 {
     [TestClass]
-    public class UnitTest
+    public class YearClassTest
     {
         [TestMethod]
         [ExpectedException(typeof(Exception))]
