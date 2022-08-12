@@ -12,7 +12,7 @@ namespace APIEnem.DomainTests
         {
             public string ConverterCódigoCivilParaTexto(int códigoEstadoCivil)
             {
-                return "EstadoCivil";
+                return "Estado Civil";
             }
         }
 
@@ -33,8 +33,8 @@ namespace APIEnem.DomainTests
         [TestMethod]
         public void CivilStatusTextTest()
         {
-            EstadoCivil estadoCivil = new EstadoCivil(3, new FakeModelCivilStatus());
-            Assert.AreEqual(true, estadoCivil.EstadoCivilTexto == "EstadoCivil");
+            EstadoCivil estadoCivil = new EstadoCivil(2, new FakeModelCivilStatus());
+            Assert.AreEqual(true, estadoCivil.EstadoCivilTexto == "Estado Civil");
         }
     }
 }
