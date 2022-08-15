@@ -8,5 +8,7 @@
         public int Erros { get; set; }
         public int Questões { get; set; }
         public double Nota { get; set; }
+
+        public int Calcular(string Gabarito, string Respostas, out int Erros);
     }
 }
