@@ -25,32 +25,22 @@ namespace APIEnem.Domain.Models.Candidato
         {
             var regex = new Regex("^[A-E]{45}$");
 
-            if (!regex.IsMatch(respostas))
+            if (regex.IsMatch(respostas) is false)
             {
-                erros = 45;
-                return 0;
+                throw new Exception("Não foi possível realizar o cálculo de erros");
             }
 
-            var númeroDeAcertos = 0;
-            var númeroDeErros = 0;
-            var alternativa = respostas.ToCharArray();
-            var resultadogabarito = gabarito.ToCharArray();
+            int númeroDeAcertos = 0;
+            int númeroDeErros = 0;
+            char[] alternativa = respostas.ToCharArray();
+            char[] resultadogabarito = gabarito.ToCharArray();
 
-            for (var i = 0; i < resultadogabarito.Length; i++)
+            for (short i = 0; i < resultadogabarito.Length; i++)
             {
-                if (alternativa[i] == '9')
-                {
-                    continue;
-                }
+                if (alternativa[i] == '9') continue;
 
-                if (alternativa[i] == resultadogabarito[i])
-                {
-                    númeroDeAcertos++;
-                }
-                else
-                {
-                    númeroDeErros++;
-                }
+                if (alternativa[i] == resultadogabarito[i]) númeroDeAcertos++; 
+                else númeroDeErros++;
             }
 
             erros = númeroDeErros;

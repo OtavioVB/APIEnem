@@ -27,8 +27,7 @@ namespace APIEnem.Domain.Models.Candidato
 
             if (!regex.IsMatch(respostas))
             {
-                erros = 45;
-                return 0;
+                throw new Exception("Não foi possível realizar o cálculo de erros");
             }
 
             var númeroDeAcertos = 0;
@@ -38,19 +37,10 @@ namespace APIEnem.Domain.Models.Candidato
 
             for (var i = 0; i < resultadogabarito.Length; i++)
             {
-                if (alternativa[i] == '9')
-                {
-                    continue;
-                }
+                if (alternativa[i] == '9') continue;
 
-                if (alternativa[i] == resultadogabarito[i])
-                {
-                    númeroDeAcertos++;
-                }
-                else
-                {
-                    númeroDeErros++;
-                }
+                if (alternativa[i] == resultadogabarito[i]) númeroDeAcertos++;
+                else númeroDeErros++;
             }
 
             erros = númeroDeErros;
