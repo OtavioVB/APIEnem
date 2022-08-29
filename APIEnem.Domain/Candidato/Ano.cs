@@ -1,30 +1,31 @@
-﻿namespace APIEnem.Domain.Models.Candidato
+﻿
+
+namespace APIEnem.Domain.Models.Candidato;
+
+public class Ano
 {
-    public class Ano
+    public string Valor { get; set; }
+
+    public Ano(string ano)
     {
-        public string Valor { get; set; }
-
-        public Ano(string ano)
+        if (ano.Length != 4)
         {
-            if (ano.Length != 4)
-            {
-                throw new Exception("O ano não condiz.");
-            }
-
-            foreach (char letra in ano)
-            {
-                if (!char.IsDigit(letra))
-                {
-                    throw new Exception("O Ano não pode conter caracteres diferentes de dígitos.");
-                }
-            }
-
-            Valor = ano;
+            throw new Exception("O ano não condiz.");
         }
 
-        public override string ToString()
+        foreach (char letra in ano)
         {
-            return Valor;
+            if (!char.IsDigit(letra))
+            {
+                throw new Exception("O Ano não pode conter caracteres diferentes de dígitos.");
+            }
         }
+
+        Valor = ano;
+    }
+
+    public override string ToString()
+    {
+        return Valor;
     }
 }

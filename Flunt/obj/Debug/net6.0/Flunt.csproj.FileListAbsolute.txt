@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\bin\Debug\net6.0\Flunt.deps.json
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\bin\Debug\net6.0\Flunt.dll
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\bin\Debug\net6.0\Flunt.pdb
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\Flunt.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\Flunt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\Flunt.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\Flunt.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\Flunt.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\Flunt.dll
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\refint\Flunt.dll
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\Flunt.pdb
+C:\Users\Admin\Desktop\Programação\ProjetoOlicio\OlicioGas\Flunt\obj\Debug\net6.0\ref\Flunt.dll
