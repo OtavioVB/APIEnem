@@ -20,14 +20,19 @@ public class CivilStatus : Notifiable, ICivilStatus
     {
         if (this.IsValid == true)
         {
-            return code switch
+            switch (code)
             {
-                1 => "Solteiro(a)",
-                2 => "Casado(a)/Mora com companheiro(a)",
-                3 => "Divorciado(a)/Desquitado(a)/Separado(a)",
-                4 => "Viúvo(a)",
-                _ => "Não informado(a)",
-            };
+                case 1:
+                    return "Solteiro(a)";
+                case 2:
+                    return "Casado(a)/Mora com companheiro(a)";
+                case 3:
+                    return "Divorciado(a)/Desquitado(a)/Separado(a)";
+                case 4:
+                    return "Viúvo(a)";
+                default:
+                    return "Não informado(a)";
+            }
         }
         else
         {
