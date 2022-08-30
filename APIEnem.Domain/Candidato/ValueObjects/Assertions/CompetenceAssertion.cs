@@ -1,6 +1,6 @@
 ﻿using Flunt.Validations;
 
-namespace APIEnem.Domain.Candidato.ValueObjects.Assertions;
+namespace APIEnem.Domain.Candidato.Contracts.ValueObjects.Assertions;
 
 public static class CompetenceAssertion
 {

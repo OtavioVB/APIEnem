@@ -11,4 +11,8 @@
     <PackageReference Include="Npgsql" Version="6.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Flunt\Flunt.csproj" />
+  </ItemGroup>
+
 </Project>
