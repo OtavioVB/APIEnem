@@ -2,5 +2,5 @@
 
 public interface IGeneralGrade
 {
-    public int Value { get; }
+    public double Value { get; }
 }

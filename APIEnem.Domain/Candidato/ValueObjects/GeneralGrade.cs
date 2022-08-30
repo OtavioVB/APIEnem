@@ -6,9 +6,9 @@ namespace APIEnem.Domain.Candidato.ValueObjects;
 
 public class GeneralGrade : Notifiable, IGeneralGrade
 {
-    public int Value { get; private set; }
+    public double Value { get; private set; }
 
-    public GeneralGrade(int value)
+    public GeneralGrade(double value)
     {
         Value = value;
         Assert(GeneralGradeAssertion.CreateGeneralGradeContract(Value));

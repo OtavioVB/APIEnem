@@ -1,5 +1,6 @@
 ﻿using Flunt.Notifications;
 using APIEnem.Domain.Candidato.Contracts.ValueObjects;
+using APIEnem.Domain.Candidato.ValueObjects.Assertions;
 
 namespace APIEnem.Domain.Candidato.ValueObjects;
 
