@@ -10,9 +10,9 @@ APIEnem.DomainTests/Properties
 APIEnem.Infra/bin
 APIEnem.Infra/obj
 APIEnem.Infra/Properties
-APIEnem.Flunt/bin
-APIEnem.Flunt/obj
-APIEnem.Flunt/Properties
+Flunt/bin
+Flunt/obj
+Flunt/Properties
 
 
 *.sln
