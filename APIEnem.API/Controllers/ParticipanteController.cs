@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Npgsql;
+using APIEnem.Domain.Models.Contracts.Handlers;
+using APIEnem.Domain.Request.Participant;
+using APIEnem.Domain.Models.ValueObjects;
 
 namespace APIEnem.API.Controllers
 {
@@ -7,18 +9,19 @@ namespace APIEnem.API.Controllers
     [Route("api/v1/content/[controller]")]
     public class ParticipanteController : ControllerBase
     {
+        private readonly IParticipantHandler _participantHandler;
         
-        
-        public ParticipanteController()
+        public ParticipanteController(IParticipantHandler participantHandler)
         {
-
+            _participantHandler = participantHandler;
         }
 
 
-        [HttpGet("{NúmeroInscrição}")]
-        public IActionResult Get(string NúmeroInscrição)
+        [HttpGet("{inscriptionNumber}")]
+        public IActionResult Get(string inscriptionNumber)
         {
-            return Ok("Hello World");
+            var result = _participantHandler.Handle(new RequestWithInscritiptionNumber(new InscriptionNumber(inscriptionNumber)));
+            return Ok(result);
         }
     }
 }

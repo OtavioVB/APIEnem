@@ -6,7 +6,12 @@ namespace APIEnem.Domain.Response.Participant;
 public class ResponseParticipant : Notifiable
 {
     public string Message { get; private set; }
-    public IParticipantInformation ParticipantInformation { get; private set; }
+    public IParticipantInformation? ParticipantInformation { get; private set; }
+
+    public ResponseParticipant(string message)
+    {
+        Message = message;
+    }
 
     public ResponseParticipant(string message, IParticipantInformation participantInformation)
     {
