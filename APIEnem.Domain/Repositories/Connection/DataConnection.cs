@@ -11,7 +11,7 @@ public class DataConnection : IDataConnection
     {
         try
         {
-            _connection = new NpgsqlConnection(Environment.GetEnvironmentVariable("POSTGREE_CONNECTION_STRING"));
+            _connection = new NpgsqlConnection("Host=ec2-34-193-44-192.compute-1.amazonaws.com;Database=dda1082kmph9ki;user id=ystpdhdsqnubxp;pwd=b3d160a53e257dda61c23cf596f0b44b42734eaed488b0273a37c41c43aa0936;port=5432");
         }
         catch
         {
