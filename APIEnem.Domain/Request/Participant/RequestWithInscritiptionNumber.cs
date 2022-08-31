@@ -3,11 +3,11 @@ using Flunt.Notifications;
 
 namespace APIEnem.Domain.Request.Participant;
 
-public class Request : Notifiable
+public class RequestWithInscritiptionNumber : Notifiable
 {
     public IInscriptionNumber InscriptionNumber { get; private set; }
 
-    public Request(IInscriptionNumber inscriptionNumber)
+    public RequestWithInscritiptionNumber(IInscriptionNumber inscriptionNumber)
     {
         InscriptionNumber = inscriptionNumber;
         AddNotifications(inscriptionNumber.Notifications);

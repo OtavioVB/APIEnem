@@ -7,11 +7,11 @@ namespace APIEnem.API.Controllers
 {
     [ApiController]
     [Route("api/v1/content/[controller]")]
-    public class ParticipanteController : ControllerBase
+    public class ParticipantController : ControllerBase
     {
         private readonly IParticipantHandler _participantHandler;
         
-        public ParticipanteController(IParticipantHandler participantHandler)
+        public ParticipantController([FromServices] IParticipantHandler participantHandler)
         {
             _participantHandler = participantHandler;
         }
