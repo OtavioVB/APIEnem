@@ -1,6 +1,6 @@
 ﻿namespace APIEnem.Domain.Models.Contracts.ValueObjects;
 
-public interface IInscriptionNumber
+public interface IInscriptionNumber : IObjectNotification
 {
     public string Value { get; }
 }

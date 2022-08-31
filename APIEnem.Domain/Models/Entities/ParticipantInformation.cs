@@ -7,7 +7,7 @@ namespace APIEnem.Domain.Models.Entities;
 public class ParticipantInformation : Notifiable, IParticipantInformation
 {
     public IInscriptionNumber InscriptionNumber { get; private set; }
-    public IAno Year { get; private set; }
+    public IYear Year { get; private set; }
     public IAgeGroup AgeGroup { get; private set; }
     public IGender Gender { get; private set; }
     public ICivilStatus CivilStatus { get; private set; }
@@ -17,7 +17,7 @@ public class ParticipantInformation : Notifiable, IParticipantInformation
     public IKnowledgeArea ExactScience { get; private set; }
     public IKnowledgeArea LinguisticScience { get; private set; }
 
-    public ParticipantInformation(IInscriptionNumber inscriptionNumber, IAno year, IAgeGroup ageGroup, IGender gender, ICivilStatus civilStatus, 
+    public ParticipantInformation(IInscriptionNumber inscriptionNumber, IYear year, IAgeGroup ageGroup, IGender gender, ICivilStatus civilStatus, 
         IRedaction redaction, IKnowledgeArea humanScience, IKnowledgeArea naturalScience, IKnowledgeArea exactScience, IKnowledgeArea linguisticScience)
     {
         InscriptionNumber = inscriptionNumber;

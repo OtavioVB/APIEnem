@@ -1,5 +1,6 @@
 ﻿using APIEnem.Domain.Models.Contracts.Infrascructure.Persistence.Participant;
-using APIEnem.Domain.Models.Contracts.Entities;
+using APIEnem.Domain.Request.Participant;
+using APIEnem.Domain.Response.Participant;
 using Flunt.Notifications;
 
 namespace APIEnem.Domain.Handlers;
@@ -13,8 +14,11 @@ public class ParticipantHandler : Notifiable
         _repositoryParticipant = repositoryParticipant;
     }
 
-    public IParticipantInformation? Handle()
+    public ResponseParticipant Handle(RequestWithInscritiptionNumber request)
     {
-        return null;
+        if (request.IsValid is false) return new ResponseParticipant("A requisição é inválida!", request.Notifications);
+
+
+        return new ResponseParticipant("Requisição realizada com sucesso!");
     }
 }

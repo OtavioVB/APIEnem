@@ -1,6 +1,6 @@
 ﻿namespace APIEnem.Domain.Models.Contracts.ValueObjects;
 
-public interface IAno
+public interface IYear : IObjectNotification
 {
     public string Value { get; }
 }

@@ -4,7 +4,7 @@ using Flunt.Notifications;
 
 namespace APIEnem.Domain.Models.ValueObjects;
 
-public class Year : Notifiable, IAno
+public class Year : Notifiable, IYear
 {
     public string Value { get; private set; }
 

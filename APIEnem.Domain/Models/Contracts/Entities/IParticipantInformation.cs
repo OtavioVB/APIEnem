@@ -2,10 +2,10 @@
 
 namespace APIEnem.Domain.Models.Contracts.Entities;
 
-public interface IParticipantInformation
+public interface IParticipantInformation : IObjectNotification
 {
     public IInscriptionNumber InscriptionNumber { get; }
-    public IAno Year { get; }
+    public IYear Year { get; }
     public IAgeGroup AgeGroup { get; }
     public IGender Gender { get; }
     public ICivilStatus CivilStatus { get; }

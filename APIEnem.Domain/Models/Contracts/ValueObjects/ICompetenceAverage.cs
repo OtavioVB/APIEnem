@@ -1,6 +1,6 @@
 ﻿namespace APIEnem.Domain.Models.Contracts.ValueObjects;
 
-public interface ICompetenceAverage
+public interface ICompetenceAverage : IObjectNotification
 {
     public int Value { get; }
 }
