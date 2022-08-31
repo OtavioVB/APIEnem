@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using APIEnem.Domain.Models.Candidato;
 using APIEnem.Domain.Models.Interfaces;
 using Npgsql;
 
@@ -9,11 +8,9 @@ namespace APIEnem.API.Controllers
     [Route("api/v1/content/[controller]")]
     public class ParticipanteController : ControllerBase
     {
-        private readonly IDataParticipante _dataParticipante;
-
-        public ParticipanteController(IDataParticipante dataParticipante)
+        public ParticipanteController()
         {
-            _dataParticipante = dataParticipante;
+
         }
 
 

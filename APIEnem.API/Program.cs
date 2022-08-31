@@ -1,13 +1,4 @@
-using APIEnem.Domain.Models.Interfaces;
-using APIEnem.Domain.Models.Interfaces.Database;
-using APIEnem.Domain.Models.Interfaces.Database.Participante;
-using APIEnem.Infra.Data.Participante;
-using APIEnem.Infra.Data;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<IDataConnection, Conexão>();
-builder.Services.AddScoped<IGlobalDataActions, GlobalDataActions>();
-builder.Services.AddScoped<IParticipanteDataActions, ParticipanteActions>();
-builder.Services.AddScoped<IDataParticipante, BancoParticipante>();
 builder.WebHost.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
