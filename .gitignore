@@ -10,6 +10,10 @@ APIEnem.DomainTests/Properties
 APIEnem.Infra/bin
 APIEnem.Infra/obj
 APIEnem.Infra/Properties
+Flunt/bin
+Flunt/obj
+Flunt/Properties
+
 
 *.sln
 .vs

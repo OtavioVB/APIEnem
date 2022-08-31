@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\APIEnem.Domain\APIEnem.Domain.csproj" />
-    <ProjectReference Include="..\APIEnem.Infra\APIEnem.Infra.csproj" />
   </ItemGroup>
 
 </Project>

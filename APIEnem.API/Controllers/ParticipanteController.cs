@@ -1,43 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using APIEnem.Domain.Models.Candidato;
-using APIEnem.Domain.Models.Interfaces;
-using APIEnem.Domain.Models.Application;
-using APIEnem.Domain.Models.Exceptions;
-using Npgsql;
+using APIEnem.Domain.Models.Contracts.Handlers;
+using APIEnem.Domain.Request.Participant;
+using APIEnem.Domain.Models.ValueObjects;
 
 namespace APIEnem.API.Controllers
 {
     [ApiController]
     [Route("api/v1/content/[controller]")]
-    public class ParticipanteController : ControllerBase
+    public class ParticipantController : ControllerBase
     {
-        private readonly IDataParticipante _dataParticipante;
-
-        public ParticipanteController(IDataParticipante dataParticipante)
+        private readonly IParticipantHandler _participantHandler;
+        
+        public ParticipantController([FromServices] IParticipantHandler participantHandler)
         {
-            _dataParticipante = dataParticipante;
+            _participantHandler = participantHandler;
         }
 
 
-        [HttpGet("{NúmeroInscrição}")]
-        public IActionResult Get(string NúmeroInscrição)
+        [HttpGet("{inscriptionNumber}")]
+        public IActionResult Get(string inscriptionNumber)
         {
-            try
-            {
-                return Ok(new Json(new ResultRequest.Ok200(_dataParticipante.Identificador,new Message("CONTROLLERS:PARTICIPANTES:GET:DATABASES:GOOD_RESULT","Chamada realizada com sucesso!", "Get recebido."), _dataParticipante.IdentificadorConnection, _dataParticipante.BuscarInformaçõesDoParticipante(new NúmeroInscrição(NúmeroInscrição)))).ToString());
-            }
-            catch (NpgsqlException)
-            {
-                return BadRequest(new Json(new ResultRequest.BadRequest400(_dataParticipante.Identificador, new Message("CONTROLLERS:PARTICIPANTES:GET:DATABASES", "Um erro inesperado ocorreu com a database!", "Contate o suporte sobre o erro."), _dataParticipante.IdentificadorConnection)).ToString());
-            }
-            catch (ModelException MEx)
-            {
-                return BadRequest(new Json(new ResultRequest.BadRequest400(_dataParticipante.Identificador, new Message(MEx.ErrorLocal, MEx.Message, MEx.Action), _dataParticipante.IdentificadorConnection)).ToString());
-            }
-            catch(RequestException REx)
-            {
-                return NotFound(new Json(new ResultRequest.BadRequest400(_dataParticipante.Identificador, new Message(REx.ErrorLocal, REx.Message, REx.Action), _dataParticipante.IdentificadorConnection)).ToString());
-            }
+            var result = _participantHandler.Handle(new RequestWithInscritiptionNumber(new InscriptionNumber(inscriptionNumber)));
+            return Ok(result);
         }
     }
 }

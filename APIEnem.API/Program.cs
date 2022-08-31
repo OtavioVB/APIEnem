@@ -1,14 +1,17 @@
-using APIEnem.Domain.Models.Interfaces;
-using APIEnem.Domain.Models.Interfaces.Database;
-using APIEnem.Domain.Models.Interfaces.Database.Participante;
-using APIEnem.Infra.Data.Participante;
-using APIEnem.Infra.Data;
+using APIEnem.Domain.Models.Contracts.Infrascructure.Connection;
+using APIEnem.Domain.Models.Contracts.Infrascructure.Persistence.Participant;
+using APIEnem.Domain.Repositories.Persistence.Participant;
+using APIEnem.Domain.Repositories.Connection;
+using APIEnem.Domain.Models.Contracts.Handlers;
+using APIEnem.Domain.Handlers;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<IDataConnection, Conexão>();
-builder.Services.AddScoped<IGlobalDataActions, GlobalDataActions>();
-builder.Services.AddScoped<IParticipanteDataActions, ParticipanteActions>();
-builder.Services.AddScoped<IDataParticipante, BancoParticipante>();
 builder.WebHost.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
+
+builder.Services.AddScoped<IDataConnection, DataConnection>();
+builder.Services.AddTransient<IRepositoryParticipant, RepositoryParticipant>();
+builder.Services.AddTransient<IParticipantHandler, ParticipantHandler>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
