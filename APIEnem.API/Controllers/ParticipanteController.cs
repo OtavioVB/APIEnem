@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using APIEnem.Domain.Models.Interfaces;
 using Npgsql;
 
 namespace APIEnem.API.Controllers
