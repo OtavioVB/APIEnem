@@ -20,7 +20,7 @@ public class RepositoryParticipant : IRepositoryParticipant
         using (var command = _dataConnection.GetConnection().CreateCommand())
         {
             command.CommandText = "SELECT * FROM TB_DADOS WHERE NU_INSCRICAO=@inscriptionNumber";
-            command.Parameters.AddWithValue("@inscriptionNumber", inscriptionNumber);
+            command.Parameters.AddWithValue("@inscriptionNumber", inscriptionNumber.Value);
             return Functions.ConvertDataTableToParticipantInformation(Functions.ConvertNpgsqlCommandToDataTable(command));
         }
     }
