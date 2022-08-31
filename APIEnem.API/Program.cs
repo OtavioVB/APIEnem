@@ -6,7 +6,7 @@ using APIEnem.Domain.Models.Contracts.Handlers;
 using APIEnem.Domain.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
-// builder.WebHost.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
+builder.WebHost.UseUrls("http://*:" + Environment.GetEnvironmentVariable("PORT"));
 
 builder.Services.AddScoped<IDataConnection, DataConnection>();
 builder.Services.AddTransient<IRepositoryParticipant, RepositoryParticipant>();
