@@ -1,10 +1,10 @@
-﻿using APIEnem.Infra.Data.Contracts.Connection;
-using APIEnem.Infra.Data.Persistence.Global;
-using APIEnem.Infra.Data.Contracts.Persistence.Participant;
-using APIEnem.Domain.Candidato.Contracts.Entities;
-using APIEnem.Domain.Candidato.Contracts.ValueObjects;
+﻿using APIEnem.Domain.Models.Contracts.Infrascructure.Connection;
+using APIEnem.Domain.Repositories.Persistence.Global;
+using APIEnem.Domain.Models.Contracts.Infrascructure.Persistence.Participant;
+using APIEnem.Domain.Models.Contracts.Entities;
+using APIEnem.Domain.Models.Contracts.ValueObjects;
 
-namespace APIEnem.Infra.Data.Persistence.Participant;
+namespace APIEnem.Domain.Repositories.Persistence.Participant;
 
 public class RepositoryParticipant : IRepositoryParticipant
 {

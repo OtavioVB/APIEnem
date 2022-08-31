@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using Npgsql;
-using APIEnem.Domain.Candidato.Contracts.Entities;
-using APIEnem.Domain.Candidato.Contracts.ValueObjects;
+using APIEnem.Domain.Models.Contracts.Entities;
+using APIEnem.Domain.Models.Contracts.ValueObjects;
 
-namespace APIEnem.Infra.Data.Persistence.Global;
+namespace APIEnem.Domain.Repositories.Persistence.Global;
 
 public static class Functions
 {
