@@ -25,4 +25,9 @@ public class ResponseParticipant : Notifiable
         Message = message;
         AddNotifications(notifications);
     }
+
+    public void AddNotificationInformation(string key, string message)
+    {
+        AddNotification(key, message);
+    }
 }
