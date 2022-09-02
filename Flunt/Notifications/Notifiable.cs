@@ -31,7 +31,7 @@ public abstract class Notifiable
     /// </summary>
     /// <param name="key">Key</param>
     /// <param name="message">Message</param>
-    protected void AddNotification(string key, string message)
+    public void AddNotification(string key, string message)
         => _notifications.Add(new Notification(key, message));
 
     /// <summary>
