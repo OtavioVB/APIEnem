@@ -24,7 +24,7 @@ public class ParticipantHandler : Notifiable, IParticipantHandler
         if (dataQuery == null) 
         { 
             var response = new ResponseParticipant("A requisição é inválida!");
-            response.AddNotificationInformation("InscriptionNumber.NotFounded.Value", "Não foi possível encontrar esse número de inscrição no banco de dados.");
+            response.AddNotification("InscriptionNumber.NotFounded.Value", "Não foi possível encontrar esse número de inscrição no banco de dados.");
             return response;
         }
 
